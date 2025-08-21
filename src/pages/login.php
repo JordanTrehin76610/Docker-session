@@ -1,8 +1,11 @@
 <?php 
-
+session_start();
 require_once '../assets/db/users.php';
 
+
 $erreur = [];
+$emailValidator = 0;
+$mdpValidator = 0;
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,12 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             foreach ($users as $utilisateur) {
                 if ($utilisateur['mail'] == $_POST['email']) {
-                    $erreur["email"] = "";
+                    $emailValidator = 1;
                     $mdp = $utilisateur["password"]; //On garde le mdp de l'utilisateur
+                    $_SESSION['role'] = $utilisateur['role']; //Pour le $_SESSION
+                    $_SESSION['name'] = $utilisateur['name'];
                     break;
-                } else {
-                    $erreur["email"] = "Adresse mail incorrect";
                 }
+            }
+            if ($emailValidator == 0) {
+                 $erreur["email"] = "Adresse mail incorrecte";
             }
         }
     }
@@ -32,13 +38,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $erreur["mdp"] = "Mot de passe trop court";
         } else if (empty($erreur["email"])) {
             if (password_verify($_POST['mdp'], $mdp)) { //Verifie le mdp avec le mot de passe dans users.php
-                $erreur["mdp"] = "";
+                $mdpValidator = 1;
             } else {
                 $erreur["mdp"] = "Mot de passe incorrect";
             }
         }
     }
+
+    if($emailValidator == 1 && $mdpValidator == 1) {
+        header("Location: espace.php");
+    }
 }
+
 
 ?>
 
