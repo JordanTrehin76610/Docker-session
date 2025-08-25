@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             foreach ($users as $utilisateur) {
                 if ($utilisateur['mail'] == $_POST['email']) {
-                    $emailValidator = 1;
+                    $emailValidator = 1; //On dit que l'email est bon
                     $mdp = $utilisateur["password"]; //On garde le mdp de l'utilisateur
                     $_SESSION['role'] = $utilisateur['role']; //Pour le $_SESSION
                     $_SESSION['name'] = $utilisateur['name'];
@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $erreur["mdp"] = "Mot de passe trop court";
         } else if (empty($erreur["email"])) {
             if (password_verify($_POST['mdp'], $mdp)) { //Verifie le mdp avec le mot de passe dans users.php
-                $_SESSION['connexion'] = true;
-                $mdpValidator = 1;
+                $_SESSION['connexion'] = true; //Instruction pour éviter de se faire éjecter de l'espace
+                $mdpValidator = 1; //On dit que le mdp est bon
             } else {
                 $erreur["mdp"] = "Mot de passe incorrect";
             }
         }
     }
 
-    if($emailValidator == 1 && $mdpValidator == 1) {
+    if($emailValidator == 1 && $mdpValidator == 1) { //On se sert de nos validateurs pour rediriger quand tout est bon
         header("Location: espace.php");
     }
 }

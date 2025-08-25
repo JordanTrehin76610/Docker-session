@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true) {
-    header("Location: login.php");
+if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true) { //Si l'utilisateur n'est pas connecté et 
+    header("Location: login.php");                                      // arrive à acceder à la page alors on le dégage
     exit;
 }
 ?>
