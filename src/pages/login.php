@@ -64,14 +64,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 
 <body>
     <div class="text-white pt-5 pb-5 background">
-        <nav class="d-flex justify-content-center">
-            <h1 class="ms-2">Mon Application Top Secret Faut Vraiment Pas Entrer</h1>
-        </nav>
+            <h1 class="ms-5 d-inline titre"><i class="bi bi-person-bounding-box"></i>Mon Application Top Secret</h1>
+            <p class="d-inline h3 border-end border-light pe-3"><i class="bi bi-info-circle"></i>Info</p>
+            <p class="d-inline h3 ms-3"><i class="bi bi-envelope"></i>Contact</p>
 
         <p class="text-center fs-3 mt-5">Connexion</p>
 

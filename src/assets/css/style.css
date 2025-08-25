@@ -8,3 +8,8 @@
    background: #0D6EFD;
 background: linear-gradient(180deg, rgba(13, 110, 253, 1) 0%, rgba(13, 110, 253, 1) 98%, rgba(255, 255, 255, 1) 100%);
 }
+
+.titre {
+    padding-right: 20%;
+    padding-left: 33.5%;
+}
