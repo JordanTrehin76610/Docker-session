@@ -16,6 +16,7 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true) { //Si l'
     <title>Connexion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
@@ -23,7 +24,8 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true) { //Si l'
 
 <body>
     <div class="text-white pt-5 pb-5 background police">
-        <h1 class="text-center mt-3">Bonjour, <?= htmlspecialchars($_SESSION['name']) ?></h1>
+        <h1 class="ms-5 d-inline titre2"><i class="bi bi-person-bounding-box"></i>Mon Application Top Secret</h1>
+        <p class="d-inline mt-3 h3">Bonjour, <?= htmlspecialchars($_SESSION['name']) ?></p>
         <div class="w-75 text-center mx-auto mt-5">
             <div class="container text-center">
                 <div class="row">

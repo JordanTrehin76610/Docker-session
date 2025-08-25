@@ -50,8 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: espace.php");
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Connexion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 
@@ -116,7 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <p class="text-center Lorem police">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel natus similique minima
+    <p class="text-center Lorem police">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel natus similique
+        minima
         eum qui dicta quo nihil, dolorem repellendus hic iusto debitis ipsam numquam enim suscipit esse doloremque atque
         asperiores.
         Magnam sequi delectus, deleniti sed consequatur accusamus quaerat fuga dolores voluptates. Doloribus quos
