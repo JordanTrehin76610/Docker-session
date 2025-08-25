@@ -69,10 +69,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <body>
-    <div class="text-white pt-5 pb-5 background">
-            <h1 class="ms-5 d-inline titre"><i class="bi bi-person-bounding-box"></i>Mon Application Top Secret</h1>
+    <div class="text-white pt-5 pb-5 background police">
+        <h1 class="ms-5 d-inline titre"><i class="bi bi-person-bounding-box"></i>Mon Application Top Secret</h1>
+        <a href="https://letmegooglethat.com/?q=Soci%C3%A9t%C3%A9+secr%C3%A8te+info"
+            class="link-offset-2 link-underline link-underline-opacity-0 text-light">
             <p class="d-inline h3 border-end border-light pe-3"><i class="bi bi-info-circle"></i>Info</p>
+        </a>
+        <a href="https://letmegooglethat.com/?q=Je+veux+faire+partie+d%27une+soci%C3%A9t%C3%A9+secr%C3%A8te+svp"
+            class="link-offset-2 link-underline link-underline-opacity-0 text-light">
             <p class="d-inline h3 ms-3"><i class="bi bi-envelope"></i>Contact</p>
+        </a>
 
         <p class="text-center fs-3 mt-5">Connexion</p>
 
@@ -110,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <p class="text-center Lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel natus similique minima
+    <p class="text-center Lorem police">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel natus similique minima
         eum qui dicta quo nihil, dolorem repellendus hic iusto debitis ipsam numquam enim suscipit esse doloremque atque
         asperiores.
         Magnam sequi delectus, deleniti sed consequatur accusamus quaerat fuga dolores voluptates. Doloribus quos

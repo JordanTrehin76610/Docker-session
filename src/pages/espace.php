@@ -22,7 +22,7 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true) {
 
 
 <body>
-    <div class="text-white pt-5 pb-5 background">
+    <div class="text-white pt-5 pb-5 background police">
         <h1 class="text-center mt-3">Bonjour, <?= htmlspecialchars($_SESSION['name']) ?></h1>
         <div class="w-75 text-center mx-auto mt-5">
             <div class="container text-center">
@@ -59,7 +59,7 @@ if (!isset($_SESSION['connexion']) || $_SESSION['connexion'] !== true) {
         </div>
     </div>
 
-    <div class="container text-center mt-5">
+    <div class="container text-center mt-5 police">
         <div class="row mb-5">
             <p class="h5 mb-5">Récapitulatif</p>
             <div class="col">
