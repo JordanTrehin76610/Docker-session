@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     style="color: red !important; display: inline; float: none;">*</span><span
                                     class="ms-2 text-danger fst-italic fw-light"><?= $erreur["email"] ?? '' ?></span>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Exemple: TheoduleLabit@email.com" value="<?= htmlspecialchars($_POST["email"]) ?? "" ?>">
+                                    placeholder="Exemple: TheoduleLabit@email.com" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                             </div>
                         </div>
                         <div class="col">
@@ -131,8 +131,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
     </script>
 </body>
-
-
-
 
 </html>
