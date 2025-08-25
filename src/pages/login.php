@@ -4,8 +4,6 @@ require_once '../assets/db/users.php';
 
 
 $erreur = [];
-$emailValidator = 0;
-$mdpValidator = 0;
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,35 +16,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             foreach ($users as $utilisateur) {
                 if ($utilisateur['mail'] == $_POST['email']) {
-                    $emailValidator = 1; //On dit que l'email est bon
-                    $mdp = $utilisateur["password"]; //On garde le mdp de l'utilisateur
                     $_SESSION['role'] = $utilisateur['role']; //Pour le $_SESSION
                     $_SESSION['name'] = $utilisateur['name'];
                     break;
+                } else {
+                    $erreur["email"] = "Adresse mail incorrecte";
                 }
             }
-            if ($emailValidator == 0) {
-                 $erreur["email"] = "Adresse mail incorrecte";
-            }
         }
     }
 
-    if(isset($_POST["mdp"])) {
+    if(isset($_POST["mdp"]) && empty($erreur["email"])) {
+        foreach ($users as $index => $mdp) {
+            if ($mdp['mail'] == $_POST['email']) {
+                $indexUtilisateur = $index;
+            }
+        }
         if (empty($_POST["mdp"])) {
             $erreur["mdp"] = "Veuillez inscrire votre mot de passe";
-        } else if(strlen($_POST["mdp"]) < 6){
-            $erreur["mdp"] = "Mot de passe trop court";
-        } else if (empty($erreur["email"])) {
-            if (password_verify($_POST['mdp'], $mdp)) { //Verifie le mdp avec le mot de passe dans users.php
-                $_SESSION['connexion'] = true; //Instruction pour éviter de se faire éjecter de l'espace
-                $mdpValidator = 1; //On dit que le mdp est bon
-            } else {
-                $erreur["mdp"] = "Mot de passe incorrect";
-            }
+        } else if (password_verify($_POST['mdp'], $users[$indexUtilisateur]['password'])) { //Verifie le mdp avec le mot de passe dans users.php
+            $_SESSION['connexion'] = true; //Instruction pour éviter de se faire éjecter de l'espace
+        } else {
+            $erreur["mdp"] = "Mot de passe incorrect";
         }
     }
 
-    if($emailValidator == 1 && $mdpValidator == 1) { //On se sert de nos validateurs pour rediriger quand tout est bon
+    if(empty($erreur)) { //Si pas d'erreur alors on redirige quand tout est bon
         header("Location: espace.php");
     }
 }
@@ -95,7 +90,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     style="color: red !important; display: inline; float: none;">*</span><span
                                     class="ms-2 text-danger fst-italic fw-light"><?= $erreur["email"] ?? '' ?></span>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Exemple: TheoduleLabit@email.com" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+                                    placeholder="Exemple: TheoduleLabit@email.com"
+                                    value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
                             </div>
                         </div>
                         <div class="col">
